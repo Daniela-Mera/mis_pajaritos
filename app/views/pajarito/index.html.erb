@@ -1,0 +1,45 @@
+<%
+=begin %>
+
+
+<div class="container">
+  <div class="row">
+    <% @paginacion.each do |item| %>
+        <div class="col text-center ">
+               <h5 class="align-text-bottom"><%= item["name"]["spanish"] %></h5>
+               <p class="fw-light fst-italic align-text-top"><%= item["name"]["latin"] %></p>
+                <img class="img-fluid" src="<%= item["images"]["main"] %>" alt="">
+                <br>
+                <br>
+                <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
+        </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<%
+=end %>
+
+<div class="card-group">
+  <% @paginacion.each do |item| %>
+      <div class="col text-center">
+        <img class="card-img-top" src="<%= item["images"]["main"]%>" alt="" style="width:auto;height:200">
+        <div class="card-body">
+          <h5 class="card-title text-truncate"><%= item["name"]["spanish"] %></h5>
+          <p class="card-text text-truncate fw-light fst-italic"><%= item["name"]["latin"] %></p>
+          <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
+        </div>
+      </div>
+  <% end %>
+</div>
+<br>
+<br>
+
+<div class="container justify-content-center">
+  <%= paginate @paginacion %>
+</div>
+
+<br>
+<br>
+
