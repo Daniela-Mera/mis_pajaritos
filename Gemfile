@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "2.7.5"
 
 gem "rest-client"
 
@@ -9,8 +9,16 @@ gem "kaminari"
 
 gem "ffi"
 
+gem 'bootstrap'
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
+
+# Devise para login usuarios
+gem 'bcrypt', platforms: :ruby
+gem 'devise', '~> 4.3'
+
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
