@@ -1,25 +1,3 @@
-<%
-=begin %>
-
-
-<div class="container">
-  <div class="row">
-    <% @paginacion.each do |item| %>
-        <div class="col text-center ">
-               <h5 class="align-text-bottom"><%= item["name"]["spanish"] %></h5>
-               <p class="fw-light fst-italic align-text-top"><%= item["name"]["latin"] %></p>
-                <img class="img-fluid" src="<%= item["images"]["main"] %>" alt="">
-                <br>
-                <br>
-                <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
-        </div>
-    <% end %>
-  </div>
-</div>
-<br>
-<br>
-<%
-=end %>
 
 <div class="card-group">
   <% @paginacion.each do |item| %>
@@ -31,6 +9,14 @@
           <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
         </div>
       </div>
+  <% end %>
+</div>
+<br>
+<br>
+
+<div class="container">
+  <% @resultado.each do |item| %>
+    <a class="btn btn-sm" href="/detalle/<%= item["uid"] %>"><span><%= item["name"]["spanish"]%></span></a>
   <% end %>
 </div>
 <br>

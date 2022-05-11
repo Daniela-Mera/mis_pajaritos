@@ -34,16 +34,24 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       
       ##Extra
       t.string:name
-      t.string:mother
-      t.string:father
-      t.integer:celphone
-      t.string:address
-      t.integer:ad_number
-      t.string:ad_dpto
-      t.string:ad_comuna
-      t.string:ad_city
-      t.string:ad_country
-      t.integer:zip_code
+      t.string:ap_materno
+      t.string:ap_paterno
+      t.integer:telefono
+      t.string:direccion
+      t.integer:dir_nro
+      t.string:dir_dpto
+      t.string:dir_comuna
+      t.string:dir_ciudad
+      t.string:dir_pais
+      t.date:fecha_nac
+      t.string:tratamiento
+      t.string:pet_perrito
+      t.string:pet_gatito
+      t.string:pet_aves
+      t.string:pet_roedores
+      t.string:pet_reptiles
+      t.string:pet_otros
+
 
 
 

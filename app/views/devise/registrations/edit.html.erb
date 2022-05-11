@@ -1,93 +1,148 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit usuario</h2>
+ <%= resource_name.to_s.humanize %>
+<br><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
- 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+  <div class="row g-3">
+    <div class="col-md-2">
+    <!-- Tratamiento -->
+        <%= f.label :tratamiento,class:"form-label" %><br />
+        <%= f.radio_button :tratamiento, "Sr." %>
+        <%= f.label :"Sr" %>
+        <%= f.radio_button :tratamiento, "Srta.", checked: "checked" %>
+        <%= f.label :"Srta" %>
+      </div>
+    <!-- Datos personales -->
+      <div class="col-md-10">
+          <%= f.label :"Nombre",class:"form-label" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %>
+      </div>
+      <div class="col-md-6">
+          <%= f.label :"Apellido paterno",class:"form-label" %><br />
+          <%= f.text_field :ap_paterno, autofocus: true, autocomplete: "ap_paterno", class:"form-control" %>
+      </div>
+      <div class="col-md-6">
+          <%= f.label :"Apellido materno" ,class:"form-label"%><br />
+          <%= f.text_field :ap_materno, autofocus: true, autocomplete: "ap_materno", class:"form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :"Fecha nacimiento",class:"form-label" %><br />
+        <%= f.date_field :fecha_nac, autofocus: true, autocomplete: "fecha_nac", class:"form-control" %>
+      </div>
+    <!-- Info de Contacto -->
+      <div class="col-md-6">
+        <%= f.label :"Teléfono" ,class:"form-label"%><br />
+        <%= f.text_field :telefono, autofocus: true, autocomplete: "telefono", class:"form-control" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :mother %><br />
-    <%= f.text_field :mother, autofocus: true, autocomplete: "mother" %>
-  </div>
+      <div class="col-md-12">
+        <%= f.label :"e-mail",class:"form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :father %><br />
-    <%= f.text_field :father, autofocus: true, autocomplete: "father" %>
-  </div>
+    <br>
+    <!-- Contraseña -->
+      <div class="col-md-6">
+        <%= f.label :"Contraseña" ,class:"form-label" %> <i>(leave blank if you don't want to change it)</i><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :celphone %><br />
-    <%= f.text_field :celphone, autofocus: true, autocomplete: "celphone" %>
-  </div>
+      <div class="col-md-6">
+        <%= f.label :"Confirmar contraseña",class:"form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
+      <div class="col-md-6">
+        <%= f.label :"Contraseña actual",class:"form-label"  %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" , class:"form-control"%>
+      </div>
+    <br>
+    <!-- Direccion -->
+      <div class="col-md-8">
+        <%= f.label :"Dirección" ,class:"form-label"%><br />
+        <%= f.text_field :direccion, autofocus: true, autocomplete: "direccion", class:"form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.label :"Nro.",class:"form-label" %><br />
+        <%= f.text_field :dir_nro, autofocus: true, autocomplete: "dir_nro", class:"form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.label :"Dpto/Anexo",class:"form-label" %><br />
+        <%= f.text_field :dir_dpto, autofocus: true, autocomplete: "dir_dpto", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :"Comuna",class:"form-label" %><br />
+        <%= f.text_field :dir_comuna, autofocus: true, autocomplete: "dir_comuna", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :"Ciudad",class:"form-label" %><br />
+        <%= f.text_field :dir_ciudad, autofocus: true, autocomplete: "dir_ciudad", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :"País",class:"form-label" %><br />
+        <!--<%= f.text_field :dir_pais, autofocus: true, autocomplete: "dir_pais", class:"form-control" %>-->
+        <% 
+        x = {
+              "Chile" => "chile", 
+              "Centroamerica" => "centroamerica",
+              "Norteamerica" => "norteamerica",
+              "Sudamerica" => "sudamerica", 
+              "Africa" =>"africa",
+              "Asia" => "asia",              
+              "Europa" => "europa",
+              "Oceania" => "oceania"          
+            } 
+        %>
+        <%= f.select(:dir_pais, x, {}, { :class => 'form-select' }) %>
 
-  <div class="field">
-    <%= f.label :ad_number %><br />
-    <%= f.text_field :ad_number, autofocus: true, autocomplete: "ad_number" %>
-  </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :ad_comuna %><br />
-    <%= f.text_field :ad_comuna, autofocus: true, autocomplete: "ad_comuna" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ad_city %><br />
-    <%= f.text_field :ad_city, autofocus: true, autocomplete: "ad_city" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ad_country %><br />
-    <%= f.text_field :ad_country, autofocus: true, autocomplete: "ad_country" %>
-  </div>
-
- <div class="field">
-    <%= f.label :zip_code %><br />
-    <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+    <br>
+    <!-- Mascotas -->
+      <div class="row mb-4">
+        <div class="col-sm-12 ">
+          <br>
+        <%= f.label :"Mascotas, cuéntanos cuáles son tus favoritos", class:"form-label"%>
+          <div class="form-check">
+            <%= f.check_box :pet_perrito, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Perritos", class:"form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :pet_gatito, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Gatitos", class:"form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :pet_aves, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Aves", class:"form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :pet_roedores, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Roedores", class:"form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :pet_reptiles, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Reptiles", class:"form-check-label"%>
+          </div>          
+          <div class="form-check">
+            <%= f.check_box :pet_otros, {:class => "form-check-input"}, "x", "0" %>
+            <%= f.label :"Otros", class:"form-check-label"%>
+          </div>           
+        </div>
+      </div>
+    <br>  
+    <!-- Acciones -->
+      <div class="actions">
+        <%= f.submit "Actualizar" ,class:"btn btn-sm btn-warning"%>
+      </div>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<br>
+<br>
+<h3>Cancelar mi cuenta</h3>
+<%= button_to "Eliminar", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete,class:"btn btn-sm btn-warning" %>
+<br>
 <%= link_to "Back", :back %>

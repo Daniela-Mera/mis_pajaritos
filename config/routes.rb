@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  
-
 
   #tenia de antes de instalar devise
   get "/", to: "pajarito#index"
