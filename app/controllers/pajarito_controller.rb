@@ -24,4 +24,14 @@ class PajaritoController < ApplicationController
 
     end
 
+    def vertodas 
+        response = RestClient::Request.new(
+            :method => :get,
+            :url => "https://aves.ninjas.cl/api/birds"
+        ).execute
+
+        @resultado = JSON.parse(response)
+
+    end
+
 end

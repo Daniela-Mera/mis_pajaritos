@@ -14,13 +14,6 @@
 <br>
 <br>
 
-<div class="container">
-  <% @resultado.each do |item| %>
-    <a class="btn btn-sm" href="/detalle/<%= item["uid"] %>"><span><%= item["name"]["spanish"]%></span></a>
-  <% end %>
-</div>
-<br>
-<br>
 
 <div class="container justify-content-center">
   <%= paginate @paginacion %>

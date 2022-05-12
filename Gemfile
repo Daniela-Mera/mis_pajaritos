@@ -10,6 +10,8 @@ gem "kaminari"
 gem "ffi"
 
 gem 'bootstrap'
+#Error  ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+gem "net-http"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
