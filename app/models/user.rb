@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #relacion 1 a n con tabla fono
-  has_many:fonos, class_name:"fono", foreign_key:"user_id"
+  has_many :fonos, class_name:"Fono", foreign_key:"user_id"
 end

@@ -1,9 +1,16 @@
 class FonosController < ApplicationController
   before_action :set_fono, only: %i[ show edit update destroy ]
 
+  #para que no se pueda acceder sin antes iniciar sesion
+  before_action:authenticate_user!
+
   # GET /fonos or /fonos.json
   def index
-    @fonos = Fono.all
+    #Para ver todos los fonos registrados
+    #@fonos = Fono.all
+
+    #Para ver solo los fonos del usuario activo
+    @fonos = User.find(current_user.id).fonos
   end
 
   # GET /fonos/1 or /fonos/1.json

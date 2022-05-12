@@ -13,14 +13,21 @@
 
   <div>
     <%= form.label :numero, style: "display: block" %>
-    <%= form.number_field :numero %>
+    <%= form.number_field :numero, min:0 %>
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+    <!--<%= form.label :user_id, style: "display: block" %>-->
+    <!-- antes, para modificar cualquier telefono-->
+    <!--<%= form.number_field :user_id %> -->
+    <!-- despues, para modificar telefono del usuario activo -->
+    <!--<%= form.number_field :user_id, :value => current_user.id %>-->
+    <!-- debo ocultar el campo, asi no podra modificarse -->
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
+  <br>
+  <br>
   <div>
     <%= form.submit %>
   </div>
