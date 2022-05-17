@@ -13,20 +13,12 @@
      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <!-- Titulo -->
-      <title>Los Pajaritos de Daniela</title>
+      <title>M9 Ejercicio Final</title>
 </head>
 
   <body>
-    <!--title-->
-    <div class="container">
-      <br>
-      <h1 class="display-2">Catálogo de aves chilenas</h1>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
 
     <!-- Navbar -->
-    <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="">
@@ -35,10 +27,14 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown" navbar>
-            <a class="navbar-brand" href="/">Inicio</a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">  
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="/vertodas">Ver todas</a></li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/vertodas">Ver todas</a>
+              </li>
               <!-- Menu desplegable con opciones de usuario -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú de usuario</a>
@@ -59,32 +55,16 @@
                 </ul>
               </li>
             </ul>
-            <!-- Input y boton de busqueda -->
-            <!--
-            <form class="d-flex">
-                <input class="form-control me-2 " type="search" placeholder="pronto..." aria-label="Search">
-                <button class="btn " type="submit">Buscar</button>
-            </form>
-            -->
           </div>
         </div>
       </nav>
       <br>
-    </div>
-    <!-- Ver información del usuario activo 
-      <div class="container">
-        <% if user_signed_in? %>
-          <p>Bienvenido: <%= current_user.name %> <%= current_user.ap_paterno %></p>
-          <p>Usuario: <%= current_user.email %></p>
-          <br>
-          <%= link_to "Cerrar Sesion", destroy_user_session_path %>
-        <% else %>
-          <p>Debe iniciar sesión para continuar</p>
-          <%= link_to "Iniciar Sesión", new_user_session_path %>
-        <% end %>
-      </div>
-    -->
 
+    <!-- Alertas y notice -->
+      <div class="container">
+        <p class="notice" style="color: red"><%= notice %></p>
+        <p class="alert" style="color: red"><%= alert %></p>
+      </div>
     <!-- yield -->
     <div class="container">
         <%= yield %>
@@ -97,7 +77,6 @@
       </div>
       <br>
       <br>
-    </div>
          
     <!-- Optional JavaScript; choose one of the two! -->
       <!-- Option 1: Bootstrap Bundle with Popper -->
