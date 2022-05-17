@@ -1,23 +1,28 @@
+<!--title-->
+  <h1 class="display-2">Catálogo de aves chilenas</h1>
+  <br>
 
-<div class="card-group">
-  <% @paginacion.each do |item| %>
-      <div class="col text-center">
-        <img class="card-img-top" src="<%= item["images"]["main"]%>" alt="" style="width:auto;height:200">
-        <div class="card-body">
-          <h5 class="card-title text-truncate"><%= item["name"]["spanish"] %></h5>
-          <p class="card-text text-truncate fw-light fst-italic"><%= item["name"]["latin"] %></p>
-          <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
+<!-- Tarjetas de pajaritos -->
+  <div class="card-group">
+    <% @paginacion.each do |item| %>
+        <div class="col text-center">
+          <img class="card-img-top" src="<%= item["images"]["main"]%>" alt="" style="width:auto;height:200">
+          <div class="card-body">
+            <h5 class="card-title text-truncate"><%= item["name"]["spanish"] %></h5>
+            <p class="card-text text-truncate fw-light fst-italic"><%= item["name"]["latin"] %></p>
+            <a class="btn btn-sm btn-warning" href="/detalle/<%= item["uid"] %>">Ver +</a>
+          </div>
         </div>
-      </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
 <br>
 <br>
 
-
-<div class="container justify-content-center">
-  <%= paginate @paginacion %>
-</div>
+<!-- Paginacion -->
+  <div class="justify-content-center">
+    <%= paginate @paginacion %>
+  </div>
 
 <br>
 <br>
